@@ -6,6 +6,7 @@ This is a React Native app, bundled in Expo CLI.
 React Native
 React Navigation
 Apollo Client
+API     HKMA
 
 
 ## Currency

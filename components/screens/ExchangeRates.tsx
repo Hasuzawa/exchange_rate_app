@@ -1,29 +1,29 @@
 import React from "react";
 import { View, SafeAreaView, Text, FlatList, StyleSheet } from "react-native";
-import { useQuery, gql } from "@apollo/client";
+import { SafeAreaView as SAV} from "react-navigation";
 
-const getRates = gql`
-    query getRates {
-        rates {
-            usd
-        }
-    }
-`
+import axios from "axios";
+
 
 
 const ExchangeRates = () => {
-    const { loading, error, data} = useQuery(getRates);
-    if (data) console.log(data);
+    // const { loading, error, data} = useQuery(getRates);
+    // if (data) console.log(data);
+
+    axios.get("https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/er-ir/er-eeri-periodaverage?offset=0")
+        .then(response => console.log(response))
+
+
     return(
-        <SafeAreaView>
+        <SAV>
             <Text>exchange rates</Text>
-        </SafeAreaView>
+        </SAV>
     );
 }
 
 
 const styles = StyleSheet.create({
-    
+
 });
 
 
