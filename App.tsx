@@ -10,12 +10,6 @@ import About from "./components/screens/About";
 
 import { SafeAreaView } from "react-navigation";
 
-//const HKMA_API = "https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/er-ir/er-eeri-periodaverage"
-
-// const client = new ApolloClient({
-//   uri: HKMA_API,
-//   cache: new InMemoryCache()
-// });
 
 // const client = new ApolloClient({
 //   cache: new InMemoryCache(),
@@ -26,28 +20,22 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function App() {
   return (
-    // <ApolloProvider client={client}>
-    
+    <SafeAreaView
+      style={styles.SAV}
+      //forceInset={{top: "always", horizontal: "never", bottom: "always"}}
+    >
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name="Rates" component={ExchangeRates} />
+          <Tab.Screen name="Rates" component={ExchangeRates} options={{tabBarLabel: "Rates"}}/>
           <Tab.Screen name="About" component={About} />
         </Tab.Navigator>
       </NavigationContainer>
-      
-    // </ApolloProvider>
-    // <View style={styles.container}>
-    //   <Text>Open up App.tsx to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  SAV: {
+    height: "100%"
+  }
+})
